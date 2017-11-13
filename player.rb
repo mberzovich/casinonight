@@ -1,5 +1,3 @@
-require_relative 'wallet'
-
 class Player
   MIN_AGE = 21
 
@@ -14,19 +12,24 @@ class Player
     puts "What is your age?"
     puts ''
     @age = gets.to_i
+    puts ''
     age_verification
     puts ''
     puts 'How much money do you want to lose?'
     puts ''
-    amount = gets.to_f
+    amount = gets.to_i
     @wallet = Wallet.new(amount)
+    puts ''
   end
 
   def age_verification
     if @age < MIN_AGE
-      `say GET OUT OF HERE!`
+      puts ''
+      puts "GET OUT OF HERE!"
       exit
     end
+    menu
   end
-
 end
+
+Player.new

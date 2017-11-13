@@ -8,8 +8,10 @@ class HighLow
   end
 
   def menu
+    puts ''
     puts "1) Place Bet"
     puts "2) Return to Casino"
+    puts ''
     choice = gets.to_i
     if choice == 1
       place_bet
@@ -17,7 +19,9 @@ class HighLow
   end
 
   def place_bet
+    puts ''
     puts "How much do you want to bet? ($#{@player.wallet.amount})"
+    puts ''
     amount = gets.to_f
     #TODO Flip cards
   end

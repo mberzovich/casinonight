@@ -38,7 +38,9 @@ class Casino
     puts '____________________________'
     puts ''
     @player = Player.new
+    puts ''
     @options = ["High / Low", "Exit"]
+    puts ''
     menu
   end
 
@@ -49,7 +51,9 @@ class Casino
       when 0
         HighLow.new(@player)
       when 1
-        puts "Come again!"
+        puts ''
+        puts "  ***  Come again!  ***  "
+        puts ''
         exit
       else
         puts "Invalid Choice"
