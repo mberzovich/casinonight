@@ -24,7 +24,7 @@
 # Any other Casino game you can think of
 # Create your own game
 
-
+require_relative 'player'
 require_relative 'wallet'
 require_relative 'high_low'
 require 'pry'
@@ -33,21 +33,26 @@ require 'colorize'
 class Casino
   @options = ["High / Low", "Exit"]
 
-  attr_accessor :player
+  attr_accessor :player, :options
 
   def initialize
+<<<<<<< HEAD
     puts ''
     puts '    *** Casino Nights! ***    '
     puts '  * Lets Play a Litte Game *  '
     puts '____________________________'
     puts ''
+=======
+    puts 'Welcome to the ruby casino!'
+>>>>>>> casino fix - not complete
     @player = Player.new
+    @option = ["High / Low", "Exit"]
     menu
   end
 end
 
   def menu
-    @options.each_with_index { |opt, i| puts "#{i + 1}) #{opt}"}
+    @options.each_with_index { |opt, i| puts "#{i + 1}) #{opt}" }
     choice = gets.to_i - 1
     case choice
       when 0
@@ -56,6 +61,7 @@ end
         puts "Come Again!"
         exit
       else puts "Invalid Choice"
+<<<<<<< HEAD
         menu
     end
     menu
@@ -88,8 +94,15 @@ class Player
     if @age < MIN_AGE
       puts "GET OUT OF HERE!"
       exit
+=======
+>>>>>>> casino fix - not complete
     end
-  end
+    menu
+  end        
 end
 
+<<<<<<< HEAD
 Casino.new
+=======
+Casino.new
+>>>>>>> casino fix - not complete
