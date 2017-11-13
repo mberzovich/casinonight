@@ -7,7 +7,6 @@ class HighLow
     @player = player
     @d = Deck.new
     @d.cards.shuffle
-    @player_hand = []
     puts "Welcome to High Low: #{player.name}"
     menu
   end
@@ -33,19 +32,28 @@ class HighLow
   
   def deal
     @player_card1 = @d.cards.sample
-    @player_hand << @player_card1
-    puts "Your card is: #{@player_hand.map(@rank)}"
+
+    puts "Your card is: #{@player_card1.rank} of #{@player_card1.suit}"
     puts ''
-    # puts "Is the next card high or low?"
-    # puts "1) High"
-    # puts "2) Low"
-    # guess = gets.to_i
-    # if guess == 1
-    #   puts "You win!"
-    #   wallet.amount
+  #  guess
   end
 
+#   def guess
+#     puts "Is the next card high or low?"
+#     puts "1) High"
+#     puts "2) Low"
+#     choice1 = gets.to_i
+#         #1 if choice1 is 1 and card2 > @rank = Win (add bet to wallet)
+#         #2 if choice1 is 1 and card2 < @rank = Lose (subtract bet from wallet)
+#         #3 if choice1 is 2 and card2 > @rank = Lose (subtract bet from wallet)
+          #4 if choice1 is 2 and card2 < @rank = Win (add bet to wallet)
+          #5 if choice1 is 1 and card2 = @rank = Push (wallet doesn't change)
+          #6 if choice1 is 2 and card2 = @rank = Push (wallet doesn't change)
+
+#     #   puts "You win!"
+#     #   wallet.amount
+#   end
 end
 
-# player = Player.new
-# HighLow.new(player)
+# # player = Player.new
+# # HighLow.new(player)
