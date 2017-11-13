@@ -1,5 +1,8 @@
+require_relative 'wallet'
+
 class Player
   MIN_AGE = 21
+
   attr_accessor :name, :age, :wallet
 
   def initialize
@@ -11,22 +14,19 @@ class Player
     puts "What is your age?"
     puts ''
     @age = gets.to_i
-    puts ''
     age_verification
     puts ''
     puts 'How much money do you want to lose?'
     puts ''
-    amount = gets.to_i
+    amount = gets.to_f
     @wallet = Wallet.new(amount)
   end
 
   def age_verification
     if @age < MIN_AGE
-      puts "GET OUT OF HERE!"
+      `say GET OUT OF HERE!`
       exit
     end
-    menu
-  end        
-end
+  end
 
-Player.new
+end
