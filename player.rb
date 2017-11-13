@@ -3,12 +3,19 @@ class Player
   attr_accessor :name, :age, :wallet
 
   def initialize
+    puts ''
     puts "What is your name?"
+    puts ''
     @name = gets.strip
+    puts ''
     puts "What is your age?"
+    puts ''
     @age = gets.to_i
+    puts ''
     age_verification
+    puts ''
     puts 'How much money do you want to lose?'
+    puts ''
     amount = gets.to_i
     @wallet = Wallet.new(amount)
   end
@@ -18,7 +25,8 @@ class Player
       puts "GET OUT OF HERE!"
       exit
     end
-  end
+    menu
+  end        
 end
 
 Player.new

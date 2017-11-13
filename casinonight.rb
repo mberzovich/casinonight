@@ -36,15 +36,11 @@ class Casino
   attr_accessor :player, :options
 
   def initialize
-<<<<<<< HEAD
     puts ''
     puts '    *** Casino Nights! ***    '
     puts '  * Lets Play a Litte Game *  '
     puts '____________________________'
     puts ''
-=======
-    puts 'Welcome to the ruby casino!'
->>>>>>> casino fix - not complete
     @player = Player.new
     @option = ["High / Low", "Exit"]
     menu
@@ -61,48 +57,10 @@ end
         puts "Come Again!"
         exit
       else puts "Invalid Choice"
-<<<<<<< HEAD
         menu
     end
     menu
     end
 end
 
-class Player
-  MIN_AGE = 21
-  attr_accessor :name, :age, :wallet
-
-  def initialize
-    puts ''
-    puts "What is your name?"
-    puts ''
-    @name = gets.strip
-    puts ''
-    puts "What is your age?"
-    puts ''
-    @age = gets.to_i
-    puts ''
-    age_verification
-    puts ''
-    puts 'How much money do you want to lose?'
-    puts ''
-    amount = gets.to_i
-    @wallet = Wallet.new(amount)
-  end
-
-  def age_verification
-    if @age < MIN_AGE
-      puts "GET OUT OF HERE!"
-      exit
-=======
->>>>>>> casino fix - not complete
-    end
-    menu
-  end        
-end
-
-<<<<<<< HEAD
 Casino.new
-=======
-Casino.new
->>>>>>> casino fix - not complete
