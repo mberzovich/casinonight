@@ -1,12 +1,13 @@
 class HighLow
-  attr_accessor :player, :casino
+  attr_accessor :player
 
-  def initialize(player, casino)
+  def initialize(player)
     @player = player
-    puts "Do you want to play High Low?"
-    choice = gets.strip
-    if choice.downcase = 'no'
-      @casino.menu
+    puts "Welcome to High Low!"
+    # puts "Do you want to play High Low?"
+    # choice = gets.strip
+    # if choice.downcase = 'no'
+    #   @casino.menu
     end
   end
 end

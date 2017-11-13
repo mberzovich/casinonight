@@ -47,12 +47,15 @@ class Casino
     choice = gets.to_i - 1
     case choice
       when 0
+        HighLow.new(@player)
       when 1
         puts "Come Again!"
         exit
       else puts "Invalid Choice"
         menu
-
+    end
+    menu 
+    end
 end
 
 class Player
