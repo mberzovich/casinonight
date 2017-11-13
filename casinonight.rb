@@ -25,22 +25,23 @@
 # Create your own game
 
 
-
+require_relative 'wallet'
 require 'pry'
 require 'colorize'
 
 class Casino
   def initialize
+    puts ''
     puts 'Welcome to the ruby casino'
-    puts 'what is your name player?'
-    name = gets.strip
+    @player = Player.new
+    binding.pry
 
   end
 end
 
 class Player
   MIN_AGE = 21
-  attr>accessor :name, :age
+  attr_accessor :name, :age, :wallet
 
   def initialize
     puts "What is your name?"
@@ -48,13 +49,16 @@ class Player
     puts "What is your age?"
     @age = gets.to_i
     age_verification
+    puts 'How much money do you want to lose?'
+    amount = gets.to_i
+    @wallet = Wallet.new(amount)
   end
 
   def age_verification
     if @age < MIN_AGE
       puts "GET OUT OF HERE!"
       exit
-    end 
+    end
   end
 end
 
