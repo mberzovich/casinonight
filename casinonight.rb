@@ -29,66 +29,88 @@
 require 'pry'
 require 'colorize'
 
+class Casino
+  def initialize
+    puts 'Welcome to the ruby casino'
+    puts 'what is your name player?'
+    name = gets.strip
 
-  def give_answer
-    answers = [
-      "It is certain",
-      "It is decidedly so",
-      "Without a doubt",
-      "Yes definitely",
-      "You may rely on it",
-      "As I see it, yes",
-      "Most likely",
-      "Outlook good",
-      "Yes",
-      "Signs point to yes",
-      "Reply hazy try again",
-      "Ask again later",
-      "Better not tell you now",
-      "Cannot predict now",
-      "Concentrate and ask again",
-      "Don't count on it",
-      "My reply is no",
-      "My sources say no",
-      "Outlook not so good",
-      "Very doubtful",
-    ]
-    puts ''
-    puts "--==*** #{answers.sample} ***==--"
-    puts ''
-    puts ''
-    puts ''
   end
-# binding.pry
-#greeting
+end
 
-def greeting
-    (1..4).each do |i|
-      puts ''
-    end
-    puts '    *** Casino Nights! ***    '
-    puts '  * Lets Play a Litte Game *  '
-    puts '____________________________'
-    puts ''
+class Player
+  MIN_AGE = 21
+  attr>accessor :name, :age
+
+  def initialize
+    puts "What is your name?"
+    @name = gets.strip
+    puts "What is your age?"
+    @age = gets.to_i
+    age_verification
   end
-#quesiton
-    def get_question
-      puts 'Ask a yes-or-no question:'
-      puts 'Type QUIT to exit'
-      puts ''
-      question = gets
-      return question
-    end
-# binding.pry
-  greeting
-#function
-  while true
-    if get_question.downcase.strip == 'quit'
-      puts 'See you next time.'
+
+  def age_verification
+    if @age < MIN_AGE
+      puts "GET OUT OF HERE!"
       exit
-    end
-    give_answer
+    end 
   end
+end
+
+Casino.new
+
+#
+#   def give_answer
+#     answers = [
+#       "It is certain",
+#       "It is decidedly so",
+#       "Without a doubt",
+#       "Yes definitely",
+#       "You may rely on it",
+#       "As I see it, yes",
+#       "Most likely",
+#       "Outlook good",
+#       "Yes",
+#       "Signs point to yes",
+#       "Reply hazy try again",
+#       "Ask again later",
+#       "Better not tell you now",
+#       "Cannot predict now",
+#       "Concentrate and ask again",
+#       "Don't count on it",
+#       "My reply is no",
+#       "My sources say no",
+#       "Outlook not so good",
+#       "Very doubtful",
+#     ]
+#     puts ''
+#     puts "--==*** #{answers.sample} ***==--"
+#     puts ''
+#     puts ''
+#     puts ''
+#   end
+# # binding.pry
+# #greeting
+#
+# #quesiton
+#     def get_question
+#       puts 'Ask a yes-or-no question:'
+#       puts 'Type QUIT to exit'
+#       puts ''
+#       question = gets
+#       return question
+#     end
+# # binding.pry
+#   greeting
+# #function
+#   while true
+#     if get_question.downcase.strip == 'quit'
+#       puts 'See you next time.'
+#       exit
+#     end
+#     give_answer
+#   end
 en
 # require 'pry'
 # require 'colorize'
