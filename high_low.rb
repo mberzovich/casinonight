@@ -1,5 +1,7 @@
 class HighLow
-  def initialize
+  attr_accessor :player, :casino
+
+  def initialize(player, casino)
     @player = player
     puts "Do you want to play High Low?"
     choice = gets.strip
