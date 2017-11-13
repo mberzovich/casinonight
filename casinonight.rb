@@ -44,6 +44,7 @@ class Casino
     @player = Player.new
     menu
   end
+end
 
   def menu
     @options.each_with_index { |opt, i| puts "#{i + 1}) #{opt}"}
@@ -66,12 +67,19 @@ class Player
   attr_accessor :name, :age, :wallet
 
   def initialize
+    puts ''
     puts "What is your name?"
+    puts ''
     @name = gets.strip
+    puts ''
     puts "What is your age?"
+    puts ''
     @age = gets.to_i
+    puts ''
     age_verification
+    puts ''
     puts 'How much money do you want to lose?'
+    puts ''
     amount = gets.to_i
     @wallet = Wallet.new(amount)
   end
@@ -85,81 +93,3 @@ class Player
 end
 
 Casino.new
-
-#
-#   def give_answer
-#     answers = [
-#       "It is certain",
-#       "It is decidedly so",
-#       "Without a doubt",
-#       "Yes definitely",
-#       "You may rely on it",
-#       "As I see it, yes",
-#       "Most likely",
-#       "Outlook good",
-#       "Yes",
-#       "Signs point to yes",
-#       "Reply hazy try again",
-#       "Ask again later",
-#       "Better not tell you now",
-#       "Cannot predict now",
-#       "Concentrate and ask again",
-#       "Don't count on it",
-#       "My reply is no",
-#       "My sources say no",
-#       "Outlook not so good",
-#       "Very doubtful",
-#     ]
-#     puts ''
-#     puts "--==*** #{answers.sample} ***==--"
-#     puts ''
-#     puts ''
-#     puts ''
-#   end
-# # binding.pry
-# #greeting
-#
-# #quesiton
-#     def get_question
-#       puts 'Ask a yes-or-no question:'
-#       puts 'Type QUIT to exit'
-#       puts ''
-#       question = gets
-#       return question
-#     end
-# # binding.pry
-#   greeting
-# #function
-#   while true
-#     if get_question.downcase.strip == 'quit'
-#       puts 'See you next time.'
-#       exit
-#     end
-#     give_answer
-#   end
-# require 'pry'
-# require 'colorize'
-#
-#
-#
-# def greeting
-#     (1..4).each do |i|
-#       puts ''
-#     end
-#     puts '    *** Casino Nights! ***    '
-#     puts '  * Lets Play a Litte Game *  '
-#     puts '____________________________'
-#     puts ''
-#   end
-#
-# binging.pry
-#
-# def menu
-#   puts "--- Contact List Menu ---"
-#   puts "1) All Contacts"
-#   puts "2) Create Contact"
-#   puts "3) Exit"
-#   user_input = gets.strip.downcase
-# end
-#
-# greeting
