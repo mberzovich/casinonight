@@ -1,6 +1,4 @@
-
-
-
+require_relative 'cardclass'
 
 class Deck
  # Getter and Setter methods for rank, suit and color

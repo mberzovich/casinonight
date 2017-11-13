@@ -38,7 +38,7 @@ class Casino
     puts '____________________________'
     puts ''
     @player = Player.new
-    puts ''
+    puts 'What game would you like to play?'
     @options = ["High / Low", "Exit"]
     puts ''
     menu

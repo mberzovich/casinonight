@@ -1,3 +1,5 @@
+require_relative 'wallet'
+
 class Player
   MIN_AGE = 21
 
@@ -28,8 +30,5 @@ class Player
       puts "GET OUT OF HERE!"
       exit
     end
-    menu
   end
 end
-
-Player.new

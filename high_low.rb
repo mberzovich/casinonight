@@ -1,8 +1,13 @@
+require_relative 'carddeck'
+require_relative 'cardclass'
+
 class HighLow
-  attr_accessor :player
 
   def initialize(player)
     @player = player
+    @d = Deck.new
+    @d.cards.shuffle
+    @player_hand = []
     puts "Welcome to High Low: #{player.name}"
     menu
   end
@@ -23,8 +28,23 @@ class HighLow
     puts "How much do you want to bet? ($#{@player.wallet.amount})"
     puts ''
     amount = gets.to_f
-    #TODO Flip cards
+    deal
   end
+  
+  def deal
+    @player_card1 = @d.cards.sample
+    @player_hand << @player_card1
+    puts "Your card is: #{@player_hand.map(@rank)}"
+    puts ''
+    # puts "Is the next card high or low?"
+    # puts "1) High"
+    # puts "2) Low"
+    # guess = gets.to_i
+    # if guess == 1
+    #   puts "You win!"
+    #   wallet.amount
+  end
+
 end
 
 # player = Player.new
