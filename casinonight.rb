@@ -37,7 +37,10 @@ class Casino
 
   def initialize
     puts ''
-    puts 'Welcome to the ruby casino'
+    puts '    *** Casino Nights! ***    '
+    puts '  * Lets Play a Litte Game *  '
+    puts '____________________________'
+    puts ''
     @player = Player.new
     menu
   end
@@ -54,7 +57,7 @@ class Casino
       else puts "Invalid Choice"
         menu
     end
-    menu 
+    menu
     end
 end
 
@@ -134,7 +137,6 @@ Casino.new
 #     end
 #     give_answer
 #   end
-en
 # require 'pry'
 # require 'colorize'
 #
