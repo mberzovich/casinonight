@@ -5,6 +5,12 @@ class Wallet
     @amount = amount
   end
 
-#want a method to add 
+  def subtract(amount_to_subtract)
+    @amount -= amount_to_subtract
+  end
+
+  def add(amount_to_add)
+    @amount += amount_to_add
+  end
 
 end

@@ -7,9 +7,10 @@ class Deck
  # Gets called when you call the new method to create an instance
  # deck = Deck.new
  def initialize
-   @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
+   @ranks = %w(Ace 2 3 4 5 6 7 8 9 10 Jack Queen King)
    @suits = %w(Spades Diamonds Clubs Hearts)
    @cards = []
+   @values = (1..13).to_a
    generate_deck
  end
 
@@ -22,7 +23,7 @@ class Deck
      @ranks.size.times do |i|
        # Ternary Operator
        color = (suit == 'Spades' || suit == 'Clubs') ? 'Black' : 'Red'
-       @cards << Card.new(@ranks[i], suit, color)
+       @cards << Card.new(@ranks[i], suit, color, @values[i])
      end
    end
  end

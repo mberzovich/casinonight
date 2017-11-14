@@ -26,7 +26,7 @@ class HighLow
     puts ''
     puts "How much do you want to bet? ($#{@player.wallet.amount})"
     puts ''
-    amount = gets.to_f
+    @bet = gets.strip.to_i
     deal
   end
   
@@ -45,24 +45,59 @@ class HighLow
     choice1 = gets.to_i
     @dealer_card = @d.cards.sample
     puts "The dealer card is: #{@dealer_card.rank} of #{@dealer_card.suit}"
-
-  def result
-         if choice == 1 & @dealer_card.rank > @player_card1.rank (add bet to wallet)
-          puts "You Win! Your card is higher than the dealer card. ($#{@player.wallet.amount}) has been added to your wallet!"
-         elsif choice1 is 1 and card2 < @rank = Lose (subtract bet from wallet)
-           puts "You Lose! ($#{@player.wallet.amount}) has been taken to your wallet!"
-         elsif choice1 is 2 and card2 > @rank = Lose (subtract bet from wallet)
-           puts "You Lose! ($#{@player.wallet.amount}) has been taken to your wallet!"
-         elsif choice1 is 2 and card2 < @rank = Win (add bet to wallet)
-           puts "You Win! ($#{@player.wallet.amount}) has been added to your wallet!"
-         elsif choice1 is 1 and card2 = @rank = Push (wallet does not change)
-           puts "Push! Your bet of ($#{@player.wallet.amount}) has been returned."
-         elsif choice1 is 2 and card2 = @rank = Push (wallet does not change)
-           puts "Push! Your bet of ($#{@player.wallet.amount}) has been returned."
-         else invalid answer. try again
+    if choice1 == 1
+      if @dealer_card.value > @player_card.value
+        puts ''
+        puts "You Win! Your card is lower than the dealer card." 
+        puts "($#{@bet}) has been added to your wallet!"
+        puts ''
+        @player.wallet.add(@bet)
+      elsif @dealer_card.value < @player_card.value
+        puts "You Lose! Your card is higher than the dealer card." 
+        puts "($#{@bet}) has been deducted to your wallet!"
+        puts ''
+        @player.wallet.subtract(@bet)
+      else 
+        "Push! Your bet of ($#{@bet}) has been returned to your wallet."
+      end    
+    elsif choice1 == 2
+      if @dealer_card.value < @player_card.value
+        puts ''
+        puts "You Win! Your card is higher than the dealer card." 
+        puts "($#{@bet}) has been added to your wallet!"
+        puts ''
+        @player.wallet.add(@bet)
+      elsif @dealer_card.value > @player_card.value
+        puts "You Lose! Your card is lower than the dealer card." 
+        puts "($#{@bet}) has been deducted to your wallet!"
+        puts ''
+        @player.wallet.subtract(@bet)
+      else 
+        "Push! Your bet of ($#{@bet}) has been returned to your wallet."
+      end    
+    else    
+      puts "Invalid answer. Try again"
+    end
+    puts "Your wallet now has $#{@player.wallet.amount}"
+    replay
   end
-  replay
-end
+    
+  
+  # def result
+    
+  #        elsif  is 1 and card2 < @rank = Lose (subtract bet from wallet)
+  #          puts "You Lose! ($#{@player.wallet.amount}) has been taken to your wallet!"
+  #        elsif choice1 is 2 and card2 > @rank = Lose (subtract bet from wallet)
+  #          puts "You Lose! ($#{@player.wallet.amount}) has been taken to your wallet!"
+  #        elsif choice1 is 2 and card2 < @rank = Win (add bet to wallet)
+  #          puts "You Win! ($#{@player.wallet.amount}) has been added to your wallet!"
+  #        elsif choice1 is 1 and card2 = @rank = Push (wallet does not change)
+  #          puts "Push! Your bet of ($#{@player.wallet.amount}) has been returned."
+  #        elsif choice1 is 2 and card2 = @rank = Push (wallet does not change)
+  #          puts "Push! Your bet of ($#{@player.wallet.amount}) has been returned."
+    
+ # 
+
 
   def replay
     puts "1) Play Again?"
@@ -77,5 +112,5 @@ end
   end  
 end
 
-# # # player = Player.new
-# # # HighLow.new(player)
+# player = Player.new
+# HighLow.new(player)
