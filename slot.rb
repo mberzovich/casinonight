@@ -50,7 +50,9 @@ def spin
     else
     end
 @arr_results = @arr.sample(3)
-  print @arr_results
+  puts ''
+  print @arr_results.join(' | ')
+  puts ''
   first_item = @arr_results[0]
   winning = true
 
