@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require_relative 'wallet'
 
 class Player
@@ -31,4 +32,26 @@ class Player
       exit
     end
   end
+=======
+class Player
+  attr_accessor :name, :age, :wallet
+
+  def initialize
+    puts "What is your name?"
+    @name = gets.strip
+    puts "What is your age?"
+    @age = gets.to_i
+    # age_verification
+    puts 'How much money do you want to lose?'
+    amount = gets.to_i
+    @wallet = Wallet.new(amount)
+  end
+
+  # def age_verification
+  #   if @age < 21
+  #     puts "GET OUT OF HERE!"
+  #     exit
+  #   end
+  # end
+>>>>>>> Updating slots
 end
