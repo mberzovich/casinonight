@@ -19,6 +19,10 @@ class HighLow
     choice = gets.to_i
     if choice == 1
       place_bet
+    elsif choice != 2
+      puts "Invalid Input"
+      menu
+    else
     end
   end
 
@@ -27,12 +31,16 @@ class HighLow
     puts "How much do you want to bet? ($#{@player.wallet.amount})"
     puts ''
     @bet = gets.strip.to_i
+    if @bet > @player.wallet.amount
+      puts "NOT ENOUGH $$ YOU CHEAP BASTARD!"
+      place_bet
+    else
+    end
     deal
   end
   
   def deal
     @player_card = @d.cards.sample
-
     puts "Your card is: #{@player_card.rank} of #{@player_card.suit}"
     puts ''
     guess
@@ -81,23 +89,6 @@ class HighLow
     puts "Your wallet now has $#{@player.wallet.amount}"
     replay
   end
-    
-  
-  # def result
-    
-  #        elsif  is 1 and card2 < @rank = Lose (subtract bet from wallet)
-  #          puts "You Lose! ($#{@player.wallet.amount}) has been taken to your wallet!"
-  #        elsif choice1 is 2 and card2 > @rank = Lose (subtract bet from wallet)
-  #          puts "You Lose! ($#{@player.wallet.amount}) has been taken to your wallet!"
-  #        elsif choice1 is 2 and card2 < @rank = Win (add bet to wallet)
-  #          puts "You Win! ($#{@player.wallet.amount}) has been added to your wallet!"
-  #        elsif choice1 is 1 and card2 = @rank = Push (wallet does not change)
-  #          puts "Push! Your bet of ($#{@player.wallet.amount}) has been returned."
-  #        elsif choice1 is 2 and card2 = @rank = Push (wallet does not change)
-  #          puts "Push! Your bet of ($#{@player.wallet.amount}) has been returned."
-    
- # 
-
 
   def replay
     puts "1) Play Again?"
@@ -106,10 +97,12 @@ class HighLow
     choice = gets.to_i
     if choice == 1
       place_bet
-    else choice == 2
-      Casino.new
+    elsif choice != 2
+      puts "Invalid Input"
+      menu
+    else
     end
-  end  
+  end
 end
 
 # player = Player.new

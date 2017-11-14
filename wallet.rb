@@ -12,10 +12,5 @@ class Wallet
   def add(amount_to_add)
     @amount += amount_to_add
   end
-<<<<<<< HEAD
-=======
-
-#want a method to add
->>>>>>> Updating slots
-
+ 
 end

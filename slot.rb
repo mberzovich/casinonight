@@ -23,7 +23,6 @@ class Slot
     choice = gets.to_i
     if choice == 1
       spin
-
     elsif choice != 2
       puts "Invalid Input"
       menu
@@ -31,13 +30,6 @@ class Slot
     end
 
   end
-
-def bet
-  puts "How much do you want to bet? ($#{@player.wallet.amount})"
-  amount = gets.strip.to_f
-
-end
-
 
 def spin
   @arr = ["Ghost",
@@ -50,6 +42,11 @@ def spin
     "Vampire"]
     puts "Place bet (Current wallet amount is: $#{@player.wallet.amount})"
     bet = gets.strip.to_f
+    if bet > @player.wallet.amount
+      puts "NOT ENOUGH $$ YOU CHEAP BASTARD!"
+      menu
+    else
+    end  
 @arr_results = @arr.sample(3)
   puts @arr_results
   first_item = @arr_results[0]

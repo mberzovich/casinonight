@@ -24,82 +24,49 @@
 # Any other Casino game you can think of
 # Create your own game
 
-<<<<<<< HEAD
-=======
-
 require_relative 'wallet'
 require_relative 'high_low'
 require_relative 'player'
 require_relative 'slot'
->>>>>>> Updating slots
+
 require 'pry'
-require_relative 'player'
-require_relative 'high_low'
 
 class Casino
-<<<<<<< HEAD
-  attr_accessor :player, :options
-=======
 
-  attr_accessor :player
->>>>>>> Updating slots
+  attr_accessor :player, :options
 
   def initialize
-    puts 'This should initialize'
     puts ''
     puts '    *** Casino Nights! ***    '
     puts '  * Lets Play a Litte Game *  '
     puts '____________________________'
     puts ''
     @player = Player.new
-<<<<<<< HEAD
-    puts 'What game would you like to play?'
-    @options = ["High / Low", "Exit"]
-    puts ''
-=======
-    @options = ["High / Low","Slots", "Exit"]
->>>>>>> Updating slots
     menu
   end
 
   def menu
-<<<<<<< HEAD
+    puts 'What game would you like to play?'
+    @options = ["High / Low","Slots", "Exit"]
     @options.each_with_index { |opt, i| puts "#{i + 1}) #{opt}" }
     choice = gets.to_i - 1
     case choice
       when 0
         HighLow.new(@player)
       when 1
+        Slot.new(@player, self)
+        menu 
+      when 2  
         puts ''
         puts "  ***  Come again!  ***  "
         puts ''
         exit
       else
         puts "Invalid Choice"
-=======
-    puts 'What would you like to play? '
-    @options.each_with_index { |opt, i| puts "#{i + 1}) #{opt}"}
-    choice = gets.to_i - 1
-    case choice
-      when 0
-        puts "Which game would you like to play? "
-
-      when 1
-        Slot.new(@player, self)
-        menu 
-      when 2
-
-        puts "Come Again!"
-        exit
-
-      else
-        puts "Invalid Choice"
-        menu
->>>>>>> Updating slots
+        menu  
     end
     menu
   end
-  # menu
 end
 
 Casino.new
