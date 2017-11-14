@@ -13,18 +13,23 @@ class Slot
     @player = player
     @casino = casino
 
-    puts "Welcome to slots: #{player.name}"
+    puts ''
+    puts "Welcome to slots: #{player.name}".yellow
     menu
   end
 
   def menu
+    puts ''
     puts "1) Place bet and spin"
-    puts "2) Return to casino"
+    puts "2) Return to Casino"
+    puts ''
     choice = gets.to_i
     if choice == 1
       spin
     elsif choice != 2
+      puts ''
       puts "Invalid Input"
+      puts ''
       menu
     else
     end
@@ -32,23 +37,20 @@ class Slot
   end
 
 def spin
-  @arr = ["Ghost",
-    "Seven",
-    "Witch",
-    "Pumpkin",
-    "Spider",
-    "Cat",
-    "Candy",
-    "Vampire"]
+  @arr = ["Ghost","Seven","Witch","Pumpkin","Spider","Cat","Candy","Vampire"]
+    puts ''
     puts "Place bet (Current wallet amount is: $#{@player.wallet.amount})"
+    puts ''
     bet = gets.strip.to_f
     if bet > @player.wallet.amount
-      puts "NOT ENOUGH $$ YOU CHEAP BASTARD!"
+      puts ''
+      puts "NOT ENOUGH $$ YOU CHEAP BASTARD!".red
+      puts ''
       menu
     else
-    end  
+    end
 @arr_results = @arr.sample(3)
-  puts @arr_results
+  print @arr_results
   first_item = @arr_results[0]
   winning = true
 
@@ -59,13 +61,20 @@ def spin
   end
 
   if winning
-    puts 'YOU WIN'
+    puts ''
+    puts 'YOU WIN'.on_light_blue
+    puts ''
     player.wallet.add(bet + bet)
+    `say wahoo wahoo`
   else
-    puts 'YOU LOSE'
+    puts ''
+    puts 'YOU LOSE'.on_light_blue
+    puts "***_\u{1f4a9}_***".on_light_blue
+    puts ''
     player.wallet.subtract(bet)
+    `say you are not very good at this`
   end
-  puts "(Current wallet amount is: $#{player.wallet.amount})"
+  puts "(Current wallet amount is: $#{player.wallet.amount})".red
   menu
   end
 

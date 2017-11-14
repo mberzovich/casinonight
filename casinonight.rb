@@ -29,41 +29,47 @@ require_relative 'high_low'
 require_relative 'player'
 require_relative 'slot'
 
+
 require 'pry'
+require 'colorize'
 
 class Casino
 
   attr_accessor :player, :options
 
   def initialize
-    puts ''
-    puts '    *** Casino Nights! ***    '
-    puts '  * Lets Play a Litte Game *  '
-    puts '____________________________'
-    puts ''
+    puts '******************************'.blue.on_light_blue
+    puts '    *** Casino Nights! ***    '.red.on_light_blue
+    puts '  * Lets Play a Litte Game *  '.green.on_light_blue
+    puts '******************************'.blue.on_light_blue
+    puts ''.on_light_blue
+    `say Welcome to Casino Nights! Lets play a little game`
     @player = Player.new
     menu
   end
 
   def menu
-    puts 'What game would you like to play?'
+    puts 'What game would you like to play?'.red
+    puts ''
     @options = ["High / Low","Slots", "Exit"]
     @options.each_with_index { |opt, i| puts "#{i + 1}) #{opt}" }
+    puts ''
     choice = gets.to_i - 1
     case choice
       when 0
         HighLow.new(@player)
       when 1
         Slot.new(@player, self)
-        menu 
-      when 2  
+        menu
+      when 2
         puts ''
-        puts "  ***  Come again!  ***  "
+        puts "  ***  Come again!  ***  ".red
         puts ''
+        `say thank you come again`
         exit
       else
         puts "Invalid Choice"
-        menu  
+        menu
     end
     menu
   end
